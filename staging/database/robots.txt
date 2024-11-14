@@ -1,8 +1,0 @@
-User-agent: *
-Disallow: 
-Sitemap: https://bebran.com/sitemap1.xml
-https://bebran.com/sitemap2.xml
-https://bebran.com/sitemap3.xml
-https://bebran.com/sitemap4.xml
-https://bebran.com/sitemap5.xml
-https://bebran.com/sitemap6.xml

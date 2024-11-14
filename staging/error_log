@@ -1,9 +1,0 @@
-[03-Apr-2024 02:49:46 America/New_York] PHP Fatal error:  Uncaught ArgumentCountError: date() expects at least 1 argument, 0 given in /home/bebrmslz/public_html/test_date.php:2
-Stack trace:
-#0 /home/bebrmslz/public_html/test_date.php(2): date()
-#1 {main}
-  thrown in /home/bebrmslz/public_html/test_date.php on line 2
-[17-Apr-2024 02:16:29 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.4.0". You are running 7.2.34. in /home/bebrmslz/public_html/vendor/composer/platform_check.php on line 24
-[17-Apr-2024 02:16:30 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.4.0". You are running 7.2.34. in /home/bebrmslz/public_html/vendor/composer/platform_check.php on line 24
-[17-Apr-2024 02:16:33 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.4.0". You are running 7.2.34. in /home/bebrmslz/public_html/vendor/composer/platform_check.php on line 24
-[17-Apr-2024 02:16:33 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.4.0". You are running 7.2.34. in /home/bebrmslz/public_html/vendor/composer/platform_check.php on line 24
