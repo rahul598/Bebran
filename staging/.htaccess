@@ -1,0 +1,80 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Redirect /home to /
+    # RewriteCond %{HTTPS} on
+    # RewriteCond %{REQUEST_URI} ^/home$
+    # RewriteRule ^(.*)$ https://staging.bebran.com/ [R=301,L]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Force URLs to lowercase
+    RewriteCond %{REQUEST_URI} [A-Z]
+    RewriteRule ^(.*)$ /${tolower:$1} [R=301,L,NE]
+
+    # Send Requests To Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+
+    # Redirect www to non-www (commented out)
+    # RewriteCond %{HTTP_HOST} ^www\.bebran\.com$ [NC]
+    # RewriteRule ^(.*)$ https://staging.bebran.com/$1 [R=301,L]
+
+    # Deny access to dotfiles
+    RewriteRule ^\. - [F,L]
+
+    # Deny access to composer.json and composer.lock
+    <FilesMatch "^(composer\.json|composer\.lock)$">
+        Require all denied
+    </FilesMatch>
+
+    # --- Added Long Cache Lifetime ---
+    <IfModule mod_expires.c>
+        ExpiresActive On
+
+        # Cache Images for 1 year
+        ExpiresByType image/jpg "access plus 1 year"
+        ExpiresByType image/jpeg "access plus 1 year"
+        ExpiresByType image/gif "access plus 1 year"
+        ExpiresByType image/png "access plus 1 year"
+        ExpiresByType image/webp "access plus 1 year"
+
+        # Cache CSS and JavaScript for 1 month
+        ExpiresByType text/css "access plus 1 month"
+        ExpiresByType application/javascript "access plus 1 month"
+        ExpiresByType text/javascript "access plus 1 month"
+
+        # Cache Fonts for 1 year
+        ExpiresByType application/font-woff2 "access plus 1 year"
+        ExpiresByType application/font-woff "access plus 1 year"
+        ExpiresByType font/ttf "access plus 1 year"
+        ExpiresByType font/otf "access plus 1 year"
+        ExpiresByType image/svg+xml "access plus 1 year"
+    </IfModule>
+
+    <IfModule mod_headers.c>
+        # Leverage browser caching
+        <FilesMatch "\.(ico|jpg|jpeg|png|gif|css|js|woff|woff2|svg|ttf|otf)$">
+            Header set Cache-Control "max-age=31536000, public"
+        </FilesMatch>
+
+        # Add CORS headers for font files
+        <FilesMatch "\.(woff|woff2|ttf|otf|eot|svg)$">
+            Header set Access-Control-Allow-Origin "*"
+            Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+            Header set Access-Control-Allow-Headers "Origin, X-Requested-With, Content-Type, Accept"
+        </FilesMatch>
+    </IfModule>
+</IfModule>

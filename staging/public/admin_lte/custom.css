@@ -1,0 +1,98 @@
+.error {
+    width: 100%;
+    color: #f00707;
+}
+
+.listing_page .btn {
+    padding: 3px 15px;
+    margin-left: 5px;
+}
+
+.card-header .form-file {
+    width: 200px;
+    margin-right: 10px;
+}
+
+.card.addCard {
+    margin-bottom: 20px;
+    border-radius: 0;
+    box-shadow: none;
+    border: 1px solid #e0e0e0;
+}
+
+.card.addCard h4 {
+    padding: 20px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 24px;
+    font-weight: 600;
+    color: #000;
+    margin: 0;
+}
+
+.card.addCard h5 {
+    padding: 15px 20px;
+    font-size: 21px;
+    font-weight: 400;
+    color: #000;
+    margin: 0;
+}
+
+.switchbox {
+    padding: 17px 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+/** Switch
+ -------------------------------------*/
+
+.switch input {
+    position: absolute;
+    opacity: 0;
+}
+
+/**
+   * 1. Adjust this to size
+   */
+
+.switch {
+    display: inline-block;
+    font-size: 20px;
+    /* 1 */
+    height: 1em;
+    width: 2em;
+    background: #BDB9A6;
+    border-radius: 1em;
+}
+
+.switch:active {
+    background-color: green;
+}
+
+.switch div {
+    height: 1em;
+    width: 1em;
+    border-radius: 1em;
+    background: #FFF;
+    box-shadow: 0 0.1em 0.3em rgba(0, 0, 0, 0.3);
+    -webkit-transition: all 300ms;
+    -moz-transition: all 300ms;
+    transition: all 300ms;
+}
+
+.switch input:checked+div {
+    -webkit-transform: translate3d(100%, 0, 0);
+    -moz-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+}
+
+.switch input:checked+div {
+ 	background-color: green;
+}
+
+input:checked + .switch_checked {
+  background-color: #2196F3;
+}
+
+
